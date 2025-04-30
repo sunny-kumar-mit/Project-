@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Government Property Portal</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #3a75c4;
+            --accent-gold: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header/Navigation */
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        nav a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Reports Section */
+        .reports-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .report-card {
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .report-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .report-card p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .report-card .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .report-card .btn:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .reports-container {
+                padding: 1.5rem;
+            }
+
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>🏠</span> Home</a></li>
+            <li><a href="reports.html" class="active"><span>📊</span> Reports</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Property Registration Reports</h1>
+        </div>
+
+        <div class="reports-container">
+            <p>Access comprehensive property registration reports and analytics for informed decision making. Our reports provide detailed insights into property transactions, ownership patterns, and registration trends across all regions.</p>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Monthly Registration Report</h3>
+                    <p>Detailed analysis of all property registrations completed this month, including district-wise breakdown and revenue collected.</p>
+                    <a href="#" class="btn">Download Report</a>
+                </div>
+                
+                <div class="report-card">
+                    <h3>Ownership Verification</h3>
+                    <p>Generate certified ownership verification reports for legal and administrative purposes.</p>
+                    <a href="#" class="btn">Generate Report</a>
+                </div>
+                
+                <div class="report-card">
+                    <h3>Historical Trends</h3>
+                    <p>Five-year analysis of property registration patterns, valuation trends, and market movements.</p>
+                    <a href="#" class="btn">View Analysis</a>
+                </div>
+                
+                <div class="report-card">
+                    <h3>Fraud Case Studies</h3>
+                    <p>Compilation of detected fraud cases with prevention guidelines for citizens and officials.</p>
+                    <a href="#" class="btn">Access Document</a>
+                </div>
+                
+                <div class="report-card">
+                    <h3>Rural Land Records</h3>
+                    <p>Comprehensive reports on rural property registrations with survey number references.</p>
+                    <a href="#" class="btn">Download Records</a>
+                </div>
+                
+                <div class="report-card">
+                    <h3>Custom Report Builder</h3>
+                    <p>Create customized reports based on your specific parameters and filters.</p>
+                    <a href="#" class="btn">Start Building</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help Center</a>
+        </div>
+        <div class="copyright">
+            © 2023 Ministry of Property Registration, Government of India. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

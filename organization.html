@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization | Ministry of Property Registration</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #3a75c4;
+            --accent-gold: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header/Navigation */
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        nav a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Organization Content */
+        .org-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .org-section {
+            margin-bottom: 3rem;
+        }
+
+        .org-section h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .org-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Department Cards */
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dept-card {
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .dept-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dept-card p {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .dept-card .contact {
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            margin-top: 1rem;
+        }
+
+        /* Organizational Chart */
+        .org-chart {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 3rem 0;
+            overflow-x: auto;
+        }
+
+        .org-chart img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .org-container {
+                padding: 1.5rem;
+            }
+
+            .dept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>🏠</span> Home</a></li>
+            <li><a href="organization.html" class="active"><span>🏛️</span> Organization</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Our Organization</h1>
+        </div>
+
+        <div class="org-container">
+            <div class="org-section">
+                <h2><span>🏛️</span> About the Ministry</h2>
+                <p>The Ministry of Property Registration is the central authority responsible for maintaining and regulating all property registration activities across the nation. Our mission is to ensure transparent, efficient, and fraud-free property transactions through modern technology and robust legal frameworks.</p>
+                <p>Established in 1985, we serve as the backbone of the real estate sector, providing critical services to citizens, businesses, and government agencies alike.</p>
+            </div>
+
+            <div class="org-section">
+                <h2><span>👥</span> Leadership</h2>
+                <div class="dept-grid">
+                    <div class="dept-card">
+                        <h3><span>👨‍💼</span> Minister's Office</h3>
+                        <p>Headed by the Honorable Minister for Property Registration, this office sets policy direction and oversees all ministry operations.</p>
+                        <p class="contact">Contact: minister@property.gov.in</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>👩‍⚖️</span> Registrar General</h3>
+                        <p>The chief executive officer responsible for day-to-day administration and implementation of registration policies.</p>
+                        <p class="contact">Contact: registrar@property.gov.in</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>👨‍💻</span> Technology Wing</h3>
+                        <p>Manages the digital infrastructure powering our online registration systems and citizen services.</p>
+                        <p class="contact">Contact: techsupport@property.gov.in</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-section">
+                <h2><span>🏢</span> Departments</h2>
+                <div class="dept-grid">
+                    <div class="dept-card">
+                        <h3><span>📑</span> Urban Registration</h3>
+                        <p>Handles all property registrations in municipal areas and cities across the country.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>🌾</span> Rural Land Records</h3>
+                        <p>Maintains and updates land records for agricultural and non-urban properties.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>🔍</span> Fraud Prevention</h3>
+                        <p>Investigates and prevents fraudulent property transactions and documents.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>📊</span> Data Analytics</h3>
+                        <p>Provides statistical reports and market insights based on registration data.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>⚖️</span> Legal Affairs</h3>
+                        <p>Handles all legal matters and disputes related to property registration.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h3><span>🔄</span> Modernization</h3>
+                        <p>Drives digital transformation and process improvements across the organization.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="org-section">
+                <h2><span>📋</span> Organizational Structure</h2>
+                <div class="org-chart">
+                    <img src="https://i.postimg.cc/vH5M7q9W/organisation-chart-d-19-08-2024.png" alt="Organizational Chart of Ministry of Property Registration">
+                    <p style="text-align: center; margin-top: 1rem;">Chart showing the hierarchical structure of our ministry and departments</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help Center</a>
+        </div>
+        <div class="copyright">
+            © 2025 Ministry of Property Registration, Government of India. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

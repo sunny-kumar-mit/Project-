@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Registration Details | Government of India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for the simple search section */
+        .hindi-font {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+        .search-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+
+        .search-toggle {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .search-toggle.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .search-toggle:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+
+        .simple-search-container {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .simple-search-container.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .simple-search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .search-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .search-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .search-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-card p {
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+
+        .search-card i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .search-input-group {
+            margin-top: 15px;
+            display: none;
+        }
+
+        .search-input-group.active {
+            display: block;
+        }
+
+        .search-input-group input, 
+        .search-input-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .search-input-group button {
+            padding: 8px 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-input-group button:hover {
+            background-color: var(--secondary);
+        }
+
+        #simpleSearchResults {
+            margin-top: 30px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and navigation remain the same -->
+    <div class="gov-header">
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png" 
+                 alt="Government of India Logo" class="gov-logo">
+            <div class="title-container">
+                <h1>Government of India</h1>
+                <h2>Ministry of Property Registration</h2>
+            </div>
+        </div>
+    </div>
+          
+   </div>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="accessibility">
+            <div class="font-size-controls">
+                <button class="font-btn small" title="Small font">A</button>
+                <button class="font-btn medium active" title="Medium font">A</button>
+                <button class="font-btn large" title="Large font">A</button>
+            </div>
+            <div class="language-selector">
+                <select>
+                    <option>English</option>
+                    <option>हिंदी</option>
+                    <option>Other Languages</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="organization.html"><i class="fas fa-sitemap"></i> Organization</a></li>
+                <li><a href="acts.html"><i class="fas fa-gavel"></i> Act/Rules</a></li>
+                <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a class="active"><i class="fas fa-search"></i> Document Search</a></li>
+                <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About us</a></li>
+                <li><a href="login.html"><i class="fas fa-user-circle"></i> Login</a></li>  
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-header">
+            <h1><i class="fas fa-search"></i> Property Registration Details</h1>
+            <p class="search-description">Search property registration records with our comprehensive search tools</p>
+        </div>
+        
+        <div class="search-options">
+            <button class="search-toggle active" id="simpleSearchToggle">Simple Search</button>
+            <button class="search-toggle" id="advancedSearchToggle">Advanced Search</button>
+        </div>
+
+        <!-- Simple Search Section -->
+        <div class="simple-search-container active" id="simpleSearchContainer">
+            <div class="simple-search-grid">
+                <div class="search-card" data-search-type="name">
+                    <h3><i class="fas fa-user"></i> Search By Name</h3>
+                    <p>Search property records by owner's name or party name</p>
+                    <div class="search-input-group" id="nameSearch">
+                        <input type="text" id="simpleName" placeholder="Enter owner/party name">
+                        <button id="searchByName">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="address">
+                    <h3><i class="fas fa-map-marker-alt"></i> Search By Property Address</h3>
+                    <p>Find properties by their physical location or address</p>
+                    <div class="search-input-group" id="addressSearch">
+                        <select id="simpleLocation">
+                            <option value="">Select Location</option>
+                        </select>
+                        <button id="searchByAddress">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="specific">
+                    <h3><i class="fas fa-bullseye"></i> Specific Search</h3>
+                    <p>Search by specific identifiers like survey number, plot number</p>
+                    <div class="search-input-group" id="specificSearch">
+                        <input type="text" id="simplePlotNo" placeholder="Enter plot number">
+                        <button id="searchByPlot">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="deed">
+                    <h3><i class="fas fa-file-contract"></i> Deed Search</h3>
+                    <p>Search property records by deed number</p>
+                    <div class="search-input-group" id="deedSearch">
+                        <input type="text" id="simpleDeedNo" placeholder="Enter deed number">
+                        <button id="searchByDeed">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="disputed">
+                    <h3><i class="fas fa-gavel"></i> Disputed Property</h3>
+                    <p>Check if a property has any legal disputes or litigation</p>
+                    <div class="search-input-group" id="disputedSearch">
+                        <input type="text" id="simpleDisputed" placeholder="Enter property details">
+                        <button id="searchDisputed">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="registry">
+                    <h3><i class="fas fa-building"></i> Search Registry Office</h3>
+                    <p>Find registry offices by location or jurisdiction</p>
+                    <div class="search-input-group" id="registrySearch">
+                        <select id="simpleRegistryOffice">
+                            <option value="">Select Registry Office</option>
+                        </select>
+                        <button id="searchRegistry">Search</button>
+                    </div>
+                </div>
+                
+                <div class="search-card" data-search-type="reports">
+                    <h3><i class="fas fa-chart-bar"></i> Reports</h3>
+                    <p>Access various property registration reports and analytics</p>
+                    <div class="search-input-group" id="reportsSearch">
+                        <select id="reportType">
+                            <option>Select report type</option>
+                            <option>Monthly Registration</option>
+                            <option>Ownership Verification</option>
+                            <option>Historical Trends</option>
+                        </select>
+                        <button id="generateReport">Generate</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results container moved here -->
+            <div id="simpleSearchResults" class="results-container" style="display: none;"></div>
+        </div>
+
+        <!-- Advanced Search Section -->
+        <div id="advancedSearchContainer" class="results-container" style="display: none;">
+            <div class="search-tabs">
+                <button class="tab-btn active" data-period="current">
+                    <i class="fas fa-laptop"></i> Online Registration (2016-Present)
+                </button>
+                <button class="tab-btn" data-period="mid">
+                    <i class="fas fa-desktop"></i> Post Computerisation (2006-2015)
+                </button>
+                <button class="tab-btn" data-period="old">
+                    <i class="fas fa-archive"></i> Pre Computerisation (Pre-2005)
+                </button>
+            </div>
+
+            <form id="searchForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="registrationOffice"><i class="fas fa-building"></i> Registration Office</label>
+                        <select id="registrationOffice" class="styled-select">
+                            <option value="ALL">ALL Offices</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateFrom"><i class="far fa-calendar-alt"></i> Date Range</label>
+                        <div class="date-range">
+                            <input type="date" id="dateFrom" placeholder="From">
+                            <span>to</span>
+                            <input type="date" id="dateTo" placeholder="To">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="areaFrom"><i class="fas fa-ruler-combined"></i> Area (decimal)</label>
+                        <div class="range-inputs">
+                            <input type="number" id="areaFrom" step="0.01" min="0" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="areaTo" step="0.01" min="0" placeholder="Max">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <select id="propertyLocation" class="styled-select">
+                            <option value="ALL">ALL Locations</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serialNo"><i class="fas fa-hashtag"></i> Serial No.</label>
+                        <input type="text" id="serialNo" placeholder="Enter serial number(e.g-SN001)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="khataNo"><i class="fas fa-file-alt"></i> Khata No.</label>
+                        <input type="text" id="khataNo" placeholder="Enter khata number(e.g-KH001)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="circle"><i class="fas fa-globe-asia"></i> Circle</label>
+                        <select id="circle" class="styled-select">
+                            <option value="ALL">ALL Circles</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deedNo"><i class="fas fa-file-contract"></i> Deed No.</label>
+                        <input type="text" id="deedNo" placeholder="Enter deed number(e.g-D001)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plotNo"><i class="fas fa-map-pin"></i> Plot No.</label>
+                        <input type="text" id="plotNo" placeholder="Enter plot number(e.g-P001)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mauja"><i class="fas fa-vector-square"></i> Mauja</label>
+                        <select id="mauja" class="styled-select">
+                            <option value="ALL">ALL Maujas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="partyName"><i class="fas fa-user-tie"></i> Party Name</label>
+                        <input type="text" id="partyName" placeholder="Enter party name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="landValueFrom"><i class="fas fa-rupee-sign"></i> Land Value (₹)</label>
+                        <div class="range-inputs">
+                            <input type="number" id="landValueFrom" min="0" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="landValueTo" min="0" placeholder="Max">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fatherHusbandName"><i class="fas fa-users"></i> Father/Husband Name</label>
+                        <input type="text" id="fatherHusbandName" placeholder="Enter name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="landType"><i class="fas fa-tags"></i> Land Type</label>
+                        <select id="landType" class="styled-select">
+                            <option value="ALL">ALL Types</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn search-btn">
+                        <i class="fas fa-search"></i> Search Records
+                    </button>
+                    <button type="reset" class="btn reset-btn">
+                        <i class="fas fa-undo"></i> Reset Form
+                    </button>
+                </div>
+            </form>
+
+            <div id="searchResults" class="results-container">
+                <!-- Results will be populated here -->
+            </div>
+
+            <div id="propertyDetails" class="property-details-container">
+                <div class="details-header">
+                    <h2><i class="fas fa-info-circle"></i> Property Details</h2>
+                    <button class="close-details" aria-label="Close details">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="propertyDetailsContent" class="details-content">
+                    <!-- Details will be populated here -->
+                </div>
+                <div id="propertyMap" class="property-map"></div>
+            </div>
+        </div>
+
+        <section class="land-gallery">
+            <h2 class="gallery-title">Explore Properties</h2>
+          
+            <div class="scroll-container">
+              <!-- Row 1 -->
+              <div class="scroll-row scroll-left">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/rpSz6zjH/Your-paragraph-text-3.png" alt="Maharashtra">
+                    <div class="image-caption">Maharashtra</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/1t36bqBR/Your-paragraph-text-1.png" alt="Karnataka">
+                    <div class="image-caption">Karnataka</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/qRFtYZgQ/Your-paragraph-text-4.png" alt="Goa">
+                    <div class="image-caption">Goa</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/gk8DV3B1/Your-paragraph-text-5.png" alt="Jammu Kashmir">
+                    <div class="image-caption">Jammu Kashmir</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/QMXWWTRg/Your-paragraph-text-2.png" alt="Rajasthan">
+                    <div class="image-caption">Rajasthan</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/6qMDpxzx/21-Amazing-Places-That-Will-Make-You-Want-to-Visit-Gujarat-jpeg.jpg" alt="Gujrat">
+                    <div class="image-caption">Gujarat</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L8tnCysF/delhi.jpg" alt="Delhi">
+                    <div class="image-caption">Delhi</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/c1TQWZ5k/chandigarh.jpg" alt="Chandigarh">
+                    <div class="image-caption">Chandigarh</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/5tx4fcrp/download-1.jpg" alt="Uttar Pradesh">
+                    <div class="image-caption">Uttar Pradesh</div>
+                </div>
+              </div>
+          
+              <!-- Row 2 -->
+              <div class="scroll-row scroll-right">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/vZygxNjx/bihar.jpg" alt="Bihar">
+                    <div class="image-caption">Bihar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/6QRmbTcm/Kolkata-West-Bengal-India-Sunrise-Sunset-Times.jpg" alt="West Bengal">
+                    <div class="image-caption">West Bengal</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/L8XgzSzW/Narmada-River-at-Omkareshwar-Jyotirlinga-jpeg.jpg" alt="Madhya Pradesh">
+                    <div class="image-caption">Madhya Pradesh</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/1ztp4dnc/Vijayawada-Travel-Guide-Best-Places-to-Visit-Attractions-and-Things-to-Do-jpeg.jpg" alt="Andhra Pradesh">
+                    <div class="image-caption">Andhra Pradesh</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/ht0rXxCg/Tour-and-Travels-Agency-in-Odisha-Exploring-Odisha-s-Best-Places.jpg" alt="Odisha">
+                    <div class="image-caption">Odisha</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/KzkY07QS/Whats-App-Image-2025-04-29-at-23-26-11-18d7d740.jpg" alt="Telangana">
+                    <div class="image-caption">Telangana</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xTZv6g9g/Hundru-falls.jpg" alt="Jharkhand">
+                    <div class="image-caption">Jharkhand</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/4dPhXbwH/assam.jpg" alt="Assam">
+                    <div class="image-caption">Assam</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/dQWTX6Lz/Pushkar-jpeg.jpg" alt="Punjab">
+                    <div class="image-caption">Punjab</div>
+                </div>
+              </div>
+          
+              <!-- Row 3 -->
+              <div class="scroll-row scroll-left">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/9F7Z7TQK/Photo-of-the-Day-Colorful-Hillside-Homes-in-Sikkim-jpeg.jpg" alt="Sikkim">
+                    <div class="image-caption">Sikkim</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/kMFpG2xq/Adventurous-Destination-Tripura-jpeg.jpg" alt="Tripura">
+                    <div class="image-caption">Tripura</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pLqgwJZ0/download-3.jpg" alt="Manipur">
+                    <div class="image-caption">Manipur</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MK3fmYy5/Tourist-biker-on-Himalaya-mountain-road-at-Ladakh-India.jpg" alt="Ladakh">
+                    <div class="image-caption">Ladakh</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Sxz5Jb7M/download-2.jpg" alt="Puducherry">
+                    <div class="image-caption">Puducherry</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/D0z5hzQF/nainital-jpeg.jpg" alt="Uttarakhand">
+                    <div class="image-caption">Uttarakhand</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/63HkSFjy/Arna-Travels-Famous-Tawang-Monastery-is-Second-Biggest-and-Oldest-in-Asia-Popular-Monasteries-to.jpg" alt="Arunachal Pradesh
+                    ">
+                    <div class="image-caption">Arunachal Pradesh
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pTTKL8gX/Planning-a-holiday-to-Mizoram-Here-s-a-suggested-itinerary-costs-where-to-stay.jpg" alt="Mizoram">
+                    <div class="image-caption">Mizoram</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/SQWzQ41b/Mokokchung-History-Sightseeing-How-To-Reach-Best-Time-To-Visit-jpeg.jpg" alt="Nagaland">
+                    <div class="image-caption">Nagaland</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/MZyHCH6R/VARIKKASSERI-MANA-jpeg.jpg" alt="Kerala">
+                    <div class="image-caption">Kerala</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Downloads</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Help Desk</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terms</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-footer">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="newsletter">
+                    <input type="email" placeholder="Your email">
+                    <button><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2025 Government of India, Ministry of Property Registration. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+  
+
+    <script src="script.js"></script>
+    <script src="simple-search.js"></script>
+    
+</body>
+</html>

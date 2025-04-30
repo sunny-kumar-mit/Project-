@@ -1,0 +1,161 @@
+{
+    
+    "registrationOffices": [
+        "Office 1",
+        "Office 2",
+        "Office 3",
+        "Office 4"
+    ],
+    "propertyLocations": [
+        "Location A",
+        "Location B",
+        "Location C",
+        "Location D"
+    ],
+    "circles": [
+        "Circle 1",
+        "Circle 2",
+        "Circle 3"
+    ],
+    "maujas": [
+        "Mauja X",
+        "Mauja Y",
+        "Mauja Z"
+    ],
+    "landTypes": [
+        "Residential",
+        "Commercial",
+        "Agricultural",
+        "Industrial"
+    ],
+    "records": [
+        {
+            "deedNo": "DN-2023-001",
+            "registrationDate": "2023-01-15",
+            "partyName": "John Doe",
+            "propertyLocation": "Location A",
+            "area": "2.5",
+            "landValue": "500000",
+            "registrationOffice": "Office 1",
+            "serialNo": "SN001",
+            "khataNo": "KH123",
+            "circle": "Circle 1",
+            "plotNo": "PL45",
+            "mauja": "Mauja X",
+            "fatherHusbandName": "Richard Doe",
+            "landType": "Residential"
+        },
+        {
+            "deedNo": "DN-2023-002",
+            "registrationDate": "2023-02-20",
+            "partyName": "Jane Smith",
+            "propertyLocation": "Location B",
+            "area": "3.0",
+            "landValue": "750000",
+            "registrationOffice": "Office 2",
+            "serialNo": "SN002",
+            "khataNo": "KH124",
+            "circle": "Circle 2",
+            "plotNo": "PL46",
+            "mauja": "Mauja Y",
+            "fatherHusbandName": "Robert Smith",
+            "landType": "Commercial"
+        },
+        {
+            "deedNo": "DN-2023-003",
+            "registrationDate": "2023-03-10",
+            "partyName": "Alice Johnson",
+            "propertyLocation": "Location C",
+            "area": "5.0",
+            "landValue": "1200000",
+            "registrationOffice": "Office 3",
+            "serialNo": "SN003",
+            "khataNo": "KH125",
+            "circle": "Circle 3",
+            "plotNo": "PL47",
+            "mauja": "Mauja Z",
+            "fatherHusbandName": "William Johnson",
+            "landType": "Agricultural"
+        },
+        {
+            "deedNo": "DN-2023-004",
+            "registrationDate": "2023-04-05",
+            "partyName": "Michael Brown",
+            "propertyLocation": "Location D",
+            "area": "1.5",
+            "landValue": "300000",
+            "registrationOffice": "Office 4",
+            "serialNo": "SN004",
+            "khataNo": "KH126",
+            "circle": "Circle 1",
+            "plotNo": "PL48",
+            "mauja": "Mauja X",
+            "fatherHusbandName": "David Brown",
+            "landType": "Residential"
+        },
+        {
+            "deedNo": "DN-2023-005",
+            "registrationDate": "2023-05-12",
+            "partyName": "Sarah Wilson",
+            "propertyLocation": "Location A",
+            "area": "4.2",
+            "landValue": "850000",
+            "registrationOffice": "Office 1",
+            "serialNo": "SN005",
+            "khataNo": "KH127",
+            "circle": "Circle 2",
+            "plotNo": "PL49",
+            "mauja": "Mauja Y",
+            "fatherHusbandName": "James Wilson",
+            "landType": "Commercial"
+        },
+        {
+            "deedNo": "DN-2023-006",
+            "registrationDate": "2023-06-18",
+            "partyName": "Robert Taylor",
+            "propertyLocation": "Location B",
+            "area": "6.8",
+            "landValue": "1500000",
+            "registrationOffice": "Office 2",
+            "serialNo": "SN006",
+            "khataNo": "KH128",
+            "circle": "Circle 3",
+            "plotNo": "PL50",
+            "mauja": "Mauja Z",
+            "fatherHusbandName": "Thomas Taylor",
+            "landType": "Agricultural"
+        },
+        {
+            "deedNo": "DN-2023-007",
+            "registrationDate": "2023-07-22",
+            "partyName": "Emily Davis",
+            "propertyLocation": "Location C",
+            "area": "2.0",
+            "landValue": "450000",
+            "registrationOffice": "Office 3",
+            "serialNo": "SN007",
+            "khataNo": "KH129",
+            "circle": "Circle 1",
+            "plotNo": "PL51",
+            "mauja": "Mauja X",
+            "fatherHusbandName": "Charles Davis",
+            "landType": "Residential"
+        },
+        {
+            "deedNo": "DN-2023-008",
+            "registrationDate": "2023-08-30",
+            "partyName": "Daniel Miller",
+            "propertyLocation": "Location D",
+            "area": "3.5",
+            "landValue": "700000",
+            "registrationOffice": "Office 4",
+            "serialNo": "SN008",
+            "khataNo": "KH130",
+            "circle": "Circle 2",
+            "plotNo": "PL52",
+            "mauja": "Mauja Y",
+            "fatherHusbandName": "Andrew Miller",
+            "landType": "Commercial"
+        }
+    ]
+}

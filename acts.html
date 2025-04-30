@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acts & Documents | Government Portal</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #3a75c4;
+            --accent-gold: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header/Navigation */
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        nav a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Documents Container */
+        .documents-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+
+        /* Document Categories */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-section h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Document Table */
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .documents-table th,
+        .documents-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .documents-table th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        .documents-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .documents-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .document-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .document-link:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+
+        .document-icon {
+            font-size: 1.25rem;
+        }
+
+        .download-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            background-color: #e0a800;
+        }
+
+        /* Search and Filter */
+        .search-filter {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+        }
+
+        .search-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .documents-container {
+                padding: 1.5rem;
+            }
+
+            .documents-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .search-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>🏠</span> Home</a></li>
+            <li><a href="acts.html" class="active"><span>📜</span> Acts & Documents</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>Acts & Legal Documents</h1>
+        </div>
+
+        <div class="documents-container">
+            <div class="search-filter">
+                <div class="search-group">
+                    <input type="text" class="search-input" placeholder="Search acts and documents...">
+                    <button class="search-btn">Search</button>
+                </div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option>All Categories</option>
+                        <option>Property Laws</option>
+                        <option>Registration Acts</option>
+                        <option>Land Reforms</option>
+                    </select>
+                    <select class="filter-select">
+                        <option>All Years</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <h2><span>📑</span> Property Registration Acts</h2>
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Document Title</th>
+                            <th>Year</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📄</span>
+                                    The Registration Act, 1908
+                                </a>
+                            </td>
+                            <td>1908</td>
+                            <td>Core Legislation</td>
+                            <td>
+                                <a href="/the_registration_act,_1908.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                              
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📄</span>
+                                    The Transfer of Property Act, 1882
+                                </a>
+                            </td>
+                            <td>1882</td>
+                            <td>Property Law</td>
+                            <td>
+                                <a href="/A1882-04.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>                        
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📄</span>
+                                    The Indian Stamp Act, 1899
+                                </a>
+                            </td>
+                            <td>1899</td>
+                            <td>Revenue</td>
+                            <td>
+                                <a href="/a1899-2 .pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="category-section">
+                <h2><span>🏛️</span> State Amendments</h2>
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Document Title</th>
+                            <th>State</th>
+                            <th>Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📄</span>
+                                    Maharashtra Amendment Act
+                                </a>
+                            </td>
+                            <td>Maharashtra</td>
+                            <td>2020</td>
+                            <td>
+                                <a href="/Maharashtra_Amendment_Act_2020.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📄</span>
+                                    Karnataka Stamp Rules
+                                </a>
+                            </td>
+                            <td>Karnataka</td>
+                            <td>2018</td>
+                            <td>
+                                <a href="/THE KARNATAKA STAMP ACT 1957 - Schedule.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="category-section">
+                <h2><span>🔍</span> Recent Notifications</h2>
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Notification</th>
+                            <th>Issue Date</th>
+                            <th>Effective From</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📢</span>
+                                    Digital Registration Guidelines
+                                </a>
+                            </td>
+                            <td>15 Jan 2023</td>
+                            <td>1 Mar 2023</td>
+                            <td>
+                                <a href="/Digital_Registration_Guideline.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="document-link">
+                                    <span class="document-icon">📢</span>
+                                    Stamp Duty Revision Notice
+                                </a>
+                            </td>
+                            <td>5 Dec 2022</td>
+                            <td>1 Jan 2023</td>
+                            <td>
+                                <a href="/IndianStampActEnglish.pdf" download class="download-btn">
+                                  Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help Center</a>
+        </div>
+        <div class="copyright">
+            © 2025 Ministry of Property Registration, Government of India. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

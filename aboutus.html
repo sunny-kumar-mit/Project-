@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Property Registration Portal</title>
+    <!-- <link rel="stylesheet" href="aboutus.css"> -->
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #3a75c4;
+            --accent-gold: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header/Navigation */
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        nav a.active {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* About Content */
+        .about-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 3rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark-text);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><span>🏠</span> Home</a></li>
+            <li><a href="aboutus.html" class="active"><span>🏛️</span> Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>About us</h1>
+        </div>
+
+        <div class="about-content">
+            <p>The Property Registration Search is designed to facilitate seamless access to property registration details across both urban and rural regions, catering to a diverse user base.</p>
+
+            <p>For property buyers and sellers, the platform enables verification of ownership, legal status, and registration records for land or buildings, thereby mitigating fraud risks. Real estate agents and developers benefit from a unified interface that accommodates urban searches (using CIN and registration numbers) as well as rural queries (via Survey Numbers and village names), enhancing efficiency and streamlining workflows.</p>
+
+            <p>Legal professionals can leverage the system's precise formatting and smart previews to support due diligence and document preparation. Additionally, rural landowners gain a user-friendly experience, allowing even non-technical users to effortlessly verify property records.</p>
+
+            <p>By prompting users to input data in the correct format, our platform minimizes errors and enhances data integrity across government databases. Serving as a vital link between the public and official property registries, we ensure faster, more reliable, and universally accessible property search capabilities.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><span>🔍</span> Comprehensive Search</h3>
+                <p>Access property records across all regions with our unified search interface supporting multiple query methods.</p>
+            </div>
+            <div class="feature-card">
+                <h3><span>🛡️</span> Fraud Prevention</h3>
+                <p>Verify ownership and legal status to mitigate risks in property transactions.</p>
+            </div>
+            <div class="feature-card">
+                <h3><span>⚖️</span> Legal Support</h3>
+                <p>Precisely formatted outputs assist legal professionals in documentation and due diligence.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Help Center</a>
+        </div>
+        <div class="copyright">
+            © 2025 Ministry of Property Registration, Government of India. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
